@@ -308,8 +308,7 @@ input.each{ log.fine "Input: $it" }
 
 // early abort if there is nothing to do
 if (input.size() == 0) {
-	log.warning "No files selected for processing"
-	return
+	fail "No valid files detected at specified path/s: " + roots
 }
 
 
@@ -698,5 +697,5 @@ if (clean) {
 
 
 if (getRenameLog().size() == 0) {
-	fail "Finished without processing any files"
+	fail "Finished without processing any files from specified path/s: " + roots
 }
